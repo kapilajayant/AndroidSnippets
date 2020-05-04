@@ -9,3 +9,4 @@ ContentValues values = new ContentValues();
         values.clear();
         values.put(Contacts.People.Phones.TYPE, Contacts.People.TYPE_MOBILE);
         values.put(Contacts.People.NUMBER, phoneNumber);
+	updateUri = getContentResolver().insert(updateUri, values);
