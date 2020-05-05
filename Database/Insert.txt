@@ -1,0 +1,21 @@
+
+TempContact tempContact = new TempContact();
+        tempContact.setContactName(contactName);
+        tempContact.setContactNumber(phoneNumber);
+        tempContact.setContactTime("Tomorrow");
+new DBHelper(MainActivity.this).addContact(tempContact);
+
+
+    public void addContact(TempContact tempContact) {
+
+        SQLiteDatabase database = this.getWritableDatabase();
+        String contactName = tempContact.getContactName();
+        String contactNumber = tempContact.getContactNumber();
+        String contactTime = tempContact.getContactTime();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("contactName", contactName);
+        contentValues.put("contactNumber", contactNumber);
+        contentValues.put("contactTime", contactTime);
+        database.insert("tempContact", null, contentValues);
+
+    }
