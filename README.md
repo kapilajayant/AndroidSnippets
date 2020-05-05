@@ -6,3 +6,4 @@ Snippets added so far:-
 
 * Add Contact
 * Delete Contact
+* Adapter for recycler view
