@@ -1,0 +1,5 @@
+fun deleteNote(i: String):Boolean {
+        val db = this.writableDatabase
+        val c = db.delete(TABLE_NAME, "$ColumnNoteText='$i'",null )
+        return c > 0
+    }
