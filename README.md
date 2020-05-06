@@ -6,5 +6,7 @@ Snippets added so far:-
 
 * Add Contact
 * Delete Contact
-* Adapter for recycler view
-* Added Swipe listener
+* Recycler View Adapter
+* Swipe listener
+* SQLite Insert
+* SQLite Read
