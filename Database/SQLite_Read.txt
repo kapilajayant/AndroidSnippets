@@ -1,0 +1,18 @@
+    public List<TempContact> getContacts(){
+        List<TempContact> contactList = new ArrayList<TempContact>();
+        SQLiteDatabase database = this.getReadableDatabase();
+        Cursor cursor = database.rawQuery("SELECT * FROM tempContact", null);
+        if(cursor.getCount() != 0){
+            while (cursor.moveToNext()){
+                TempContact tempContact = new TempContact();
+                String contactName = cursor.getString(cursor.getColumnIndex("contactName"));
+                String contactNumber = cursor.getString(cursor.getColumnIndex("contactNumber"));
+                String contactTime = cursor.getString(cursor.getColumnIndex("contactTime"));
+                tempContact.setContactName(contactName);
+                tempContact.setContactNumber(contactNumber);
+                tempContact.setContactTime(contactTime);
+                contactList.add(tempContact);
+            }
+        }
+        return contactList;
+    }
