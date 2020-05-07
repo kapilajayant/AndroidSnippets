@@ -6,10 +6,15 @@
 
 * Add Contact
 * Delete Contact
+
 * Recycler View Adapter
 * Swipe listener
+
 * SQLite Insert
 * SQLite Read
 * SQLite Delete
+
 * Authentication Email
 * Authentication Google
+* Authentication Facebook
+* Authentication Phone OTP
