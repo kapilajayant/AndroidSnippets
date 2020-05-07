@@ -11,3 +11,5 @@
 * SQLite Insert
 * SQLite Read
 * SQLite Delete
+* Authentication Email
+* Authentication Google
