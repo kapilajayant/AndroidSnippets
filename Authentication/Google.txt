@@ -1,0 +1,71 @@
+    private GoogleSignInClient mGoogleSignInClient;
+    private int RC_SIGN_IN = 123;
+    private FirebaseAuth mAuth;
+    private CallbackManager mCallbackManager;
+    private ProgressDialog dialog;
+
+	//inside on create
+	firebaseAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
+        mCallbackManager = CallbackManager.Factory.create();
+        dialog = new ProgressDialog(LoginActivity.this);
+
+private void googleAuthSignUp() {
+        // Configure Google Sign In
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        signIn();
+    }
+
+private void signIn() {
+Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+startActivityForResult(signInIntent, RC_SIGN_IN);
+}
+
+@Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == RC_SIGN_IN) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                dialog.setMessage("Please wait...");
+                dialog.setCancelable(false);
+                dialog.show();
+                // Google Sign In was successful, authenticate with Firebase
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                firebaseAuthWithGoogle(account);
+            } catch (ApiException e) {
+                // Google Sign In failed, update UI appropriately
+                Log.w("log_google", "Google sign in failed", e);
+                // ...
+            }
+        }
+    }
+    private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
+        Log.d("log_google", "firebaseAuthWithGoogle:" + acct.getId());
+
+        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            dialog.dismiss();
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d("log_google", "signInWithCredential:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            startActivity(new Intent(LoginActivity.this, OtpActivity.class));
+                            finish();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(getApplicationContext(), "Login Failed", Toast.LENGTH_LONG).show();
+                            Log.w("log_google", "signInWithCredential:failure", task.getException());
+                        }
+                    }
+                });
+    }
