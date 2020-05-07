@@ -10,3 +10,4 @@
 * Swipe listener
 * SQLite Insert
 * SQLite Read
+* SQLite Delete
