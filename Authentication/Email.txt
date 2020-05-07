@@ -1,0 +1,70 @@
+       btn_signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkPoints();
+            }
+        });
+
+    }
+
+    private void checkPoints() {
+        String email = et_email.getText().toString();
+        String password = et_password.getText().toString();
+
+        if(!(email.isEmpty()))
+        {
+            if(!(password.isEmpty()))
+            {
+                if (password.length() > 6)
+                {
+                    if(radioButton.isChecked())
+                    {
+                        emailSignUp(email, password);
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), "Please agree to privacy policy to continue", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else {
+                    et_password.setError("At least 6 characters required");
+                }
+            }
+            else {
+                et_password.setError("Password is required");
+            }
+        }
+        else
+        {
+            et_email.setError("Email is required");
+        }
+    }
+
+    private void emailSignUp(String email, String password) {
+        progress = new ProgressDialog(EmailActivity.this);
+        progress.setTitle("Creating Account...");
+        progress.setMessage("Please Wait");
+        progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progress.show();
+
+        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+
+                if(task.isSuccessful())
+                {
+                    progress.dismiss();
+                    startActivity(new Intent(EmailActivity.this, OtpActivity.class));
+                    finish();
+                }
+
+                else {
+                    progress.dismiss();
+                    String error = task.getException().getMessage();
+                    Toast.makeText(getApplicationContext(), error, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(EmailActivity.this, "Some Error Occurred, Try Again", Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
+
+    }
