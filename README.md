@@ -24,3 +24,4 @@
 * Swipe Stack Layout
 * Firebase read write
 * Broadcast receivers
+* location
