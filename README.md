@@ -22,3 +22,4 @@
 > Things to add
 * Shared Preferences
 * Swipe Stack Layout
+* Firebase read write
