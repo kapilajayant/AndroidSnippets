@@ -18,3 +18,5 @@
 * Authentication Google
 * Authentication Facebook
 * Authentication Phone OTP
+
+* Things to add
