@@ -19,4 +19,5 @@
 * Authentication Facebook
 * Authentication Phone OTP
 
-* Things to add
+> Things to add
+* Shared Preferences
