@@ -1,0 +1,13 @@
+FirebaseDatabase firebaseDatabase;
+DatabaseReference prods;
+
+
+// oncreate
+firebaseDatabase = FirebaseDatabase.getInstance();
+prods = FirebaseDatabase.getInstance().getReference("Users").child(currentUser.getUid());
+String s_id = prods.push().getKey();
+prods.child("Cart").child(id).child("id").setValue(id);
+.
+.
+.
+.... so on
