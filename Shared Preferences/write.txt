@@ -1,0 +1,10 @@
+String mypreferences1 = "mypref";
+SharedPreferences pref1;
+
+
+//on create 
+pref1 = getSharedPreferences(mypreferences1, Context.MODE_PRIVATE);
+
+SharedPreferences.Editor editor = pref1.edit();
+editor.putString("key", value);
+editor.commit();
