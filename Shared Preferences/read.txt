@@ -1,0 +1,7 @@
+String mypreferences1 = "mypref";
+SharedPreferences pref1;
+
+
+//on create 
+SharedPreferences pref = getSharedPreferences(mypreferences1, Context.MODE_MULTI_PROCESS);
+String value = pref.getString("key","");
