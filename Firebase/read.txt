@@ -1,0 +1,14 @@
+FirebaseDatabase firebaseDatabase;
+DatabaseReference prods;
+
+
+// oncreate
+firebaseDatabase = FirebaseDatabase.getInstance();
+prods = FirebaseDatabase.getInstance().getReference("Users").child(currentUser.getUid());
+prods = firebaseDatabase.getReference("Groceries");
+prods.child(prodId).addValueEventListener(new ValueEventListener() {
+@Override
+public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+final Products products = dataSnapshot.getValue(Products.class);
+prod_name.setText(products.getName());
+prod_price.setText("₹"+products.getPrice());
