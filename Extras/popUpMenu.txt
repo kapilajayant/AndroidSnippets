@@ -1,0 +1,19 @@
+PopupMenu popup = new PopupMenu(mContext, view);
+popup.inflate(R.menu.options_menu);
+popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+@Override
+public boolean onMenuItemClick(MenuItem menuItem) {
+switch (menuItem.getItemId())
+{
+case R.id.menu1:
+//Toast.makeText(mContext, "Pressed Update", Toast.LENGTH_SHORT).show();
+break;
+case R.id.menu2:
+//Toast.makeText(mContext, "Pressed Delete", Toast.LENGTH_SHORT).show();
+}
+break;
+}
+return false;
+}
+});
+popup.show();
