@@ -19,10 +19,13 @@
 * Authentication Facebook
 * Authentication Phone OTP
 
-> Things to add
+* Firebase write
+* Firebase read
+
 * Shared Preferences
+> Things to add
+
 * Swipe Stack Layout
-* Firebase read write
 * Broadcast receivers
 * location
 * retrofit
