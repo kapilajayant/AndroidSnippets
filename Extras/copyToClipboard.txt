@@ -1,0 +1,3 @@
+ClipboardManager clipboard = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+ClipData clip = ClipData.newPlainText("label", "some text or whatever");
+clipboard.setPrimaryClip(clip);
