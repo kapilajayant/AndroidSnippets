@@ -19,6 +19,8 @@
 * Firebase read
 * Shared Preferences
 * Singleton pattern
+* Copy to Clipboard
+* Pop Up Menu
 > Things to add
 * Swipe Stack Layout
 * Broadcast receivers
