@@ -18,7 +18,7 @@
 * Firebase write
 * Firebase read
 * Shared Preferences
-* Singleton
+* Singleton pattern
 > Things to add
 * Swipe Stack Layout
 * Broadcast receivers
