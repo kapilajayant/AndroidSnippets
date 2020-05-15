@@ -8,6 +8,7 @@
 * Delete Contact
 * Recycler View Adapter
 * Swipe listener
+* Search in recycler view
 * SQLite Insert
 * SQLite Read
 * SQLite Delete
