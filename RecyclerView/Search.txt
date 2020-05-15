@@ -1,0 +1,76 @@
+//inside adapter
+    private Filter listFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+
+            ArrayList<String> filterList = new ArrayList<>();
+            if(charSequence == null || charSequence.length()==0)
+            {
+                filterList.addAll(mListTemp);
+            }
+            else {
+                String filterPattern = charSequence.toString().toLowerCase().trim();
+                for(String item : mListTemp)
+                {
+                    if (item.toLowerCase().contains(filterPattern))
+                    {
+                        filterList.add(item);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filterList;
+
+            return results;
+        }
+
+
+//calling from activity
+
+    @Override
+    public boolean onCreateOptionsMenu(final Menu menu) {
+
+        final MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.search_menu, menu);
+        final MenuItem searchItem = menu.findItem(R.id.item_search);
+        final MenuItem ie_item = menu.findItem(R.id.item_export);
+        final SearchView searchView = (SearchView) searchItem.getActionView();
+
+        searchItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.showSoftInput(searchView,0);
+                return false;
+            }
+        });
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                searchView.onActionViewCollapsed();
+                searchView.clearFocus();
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                adapter.getFilter().filter(s);
+                return false;
+            }
+        });
+
+        ie_item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+
+                BottomSheetMenu bottomSheetMenu = new BottomSheetMenu();
+                bottomSheetMenu.show(getSupportFragmentManager(), "import_export");
+
+                return false;
+            }
+        });
+
+        return true;
+    }
+
