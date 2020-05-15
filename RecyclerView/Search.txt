@@ -1,3 +1,6 @@
+// first current list is stored in temp array
+// and search is performed on it
+// then this is used as array for rv
 //inside adapter
     private Filter listFilter = new Filter() {
         @Override
