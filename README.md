@@ -21,6 +21,7 @@
 * Singleton pattern
 * Copy to Clipboard
 * Pop Up Menu
+* Pie Chart
 > Things to add
 * Swipe Stack Layout
 * Broadcast receivers
