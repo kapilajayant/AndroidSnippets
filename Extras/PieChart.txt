@@ -1,0 +1,20 @@
+<com.github.mikephil.charting.charts.PieChart
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/pie">
+</com.github.mikephil.charting.charts.PieChart>
+
+int expense[] = {f,e,t,b,fe};
+PieChart pie = findViewById(R.id.pie);
+Description description = new Description();
+description.setText("Color Coded Report");
+pie.setDescription(description);
+List<PieEntry> pieEntries1 = new ArrayList<>();
+for (int i = 0;i<expense.length;i++)
+     pieEntries1.add(new PieEntry(expense[i],cat[i]));
+PieDataSet pieDataSet = new PieDataSet(pieEntries1,"<----Expenditure");
+pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+PieData pieData = new PieData(pieDataSet);
+pie.setData(pieData);
+pie.animateY(1000);
+pie.invalidate();
