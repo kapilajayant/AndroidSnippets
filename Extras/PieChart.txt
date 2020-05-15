@@ -1,3 +1,5 @@
+compile 'com.github.PhilJay:MPAndroidChart:v3.0.1'
+
 <com.github.mikephil.charting.charts.PieChart
         android:layout_width="match_parent"
         android:layout_height="match_parent"
