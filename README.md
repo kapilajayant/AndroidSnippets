@@ -27,6 +27,6 @@
 * Swipe Stack Layout
 * Broadcast receivers
 * location
-* retrofit
+* Retrofit
 * Custom Alert Dialog
 * Bottom Sheet Menu
