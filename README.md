@@ -28,3 +28,5 @@
 * Broadcast receivers
 * location
 * retrofit
+* Custom Alert Dialog
+* Bottom Sheet Menu
