@@ -1,0 +1,32 @@
+ViewGroup viewGroup = findViewById(android.R.id.content);
+final View dialogView = LayoutInflater.from(this).inflate(R.layout.add_note, viewGroup, false);
+final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+final EditText et = dialogView.findViewById(R.id.et);
+et.requestFocus();
+viewGroup.setBackgroundColor(getResources().getColor(R.color.custom_gray));
+builder.setView(dialogView);
+builder.setCancelable(false);
+builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+    @Override
+    public void onClick(DialogInterface dialogInterface, int i) {
+    
+    }
+});
+builder.setPositiveButton("Add",
+        new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(getApplicationContext(), "Note Added", Toast.LENGTH_SHORT).show();
+);
+
+builder.setOnCancelListener(
+        new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialogInterface) {
+                Toast.makeText(getApplicationContext(), "Cancelled", Toast.LENGTH_SHORT).show();
+            }
+        }
+);
+AlertDialog alertDialog = builder.create();
+alertDialog.show();
+}
