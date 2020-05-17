@@ -1,0 +1,44 @@
+LinearLayout shareLinearLayout, uploadLinearLayout, copyLinearLayout;
+BottomSheetDialog bottomSheetDialog;
+
+//inside onCreate
+private void createBottomSheetDialog() {
+    if (bottomSheetDialog == null) {
+        View view = LayoutInflater.from(this).inflate(R.layout.bottom_sheet, null);
+        shareLinearLayout = view.findViewById(R.id.shareLinearLayout);
+        uploadLinearLayout = view.findViewById(R.id.uploadLinearLayout);
+        copyLinearLayout = view.findViewById(R.id.copyLinearLayout);
+
+        shareLinearLayout.setOnClickListener(this);
+        uploadLinearLayout.setOnClickListener(this);
+        copyLinearLayout.setOnClickListener(this);
+
+        bottomSheetDialog = new BottomSheetDialog(this);
+        bottomSheetDialog.setContentView(view);
+    }
+}
+
+
+public void showDialog(View view) {
+    bottomSheetDialog.show();
+}
+
+
+@Override
+public void onClick(View view) {
+    switch (view.getId()) {
+        case R.id.shareLinearLayout:
+            //toast share
+            bottomSheetDialog.dismiss();
+            break;
+        case R.id.uploadLinearLayout:
+            //toast upload
+            bottomSheetDialog.dismiss();
+            break;
+        case R.id.copyLinearLayout:
+            //toast copy
+            bottomSheetDialog.dismiss();
+            break;
+
+    }
+}
