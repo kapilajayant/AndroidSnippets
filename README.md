@@ -23,10 +23,10 @@
 * Copy to Clipboard
 * Pop Up Menu
 * Pie Chart
+* Custom Alert Dialog
 > Things to add
 * Swipe Stack Layout
 * Broadcast receivers
 * location
 * Retrofit
-* Custom Alert Dialog
 * Bottom Sheet Menu
