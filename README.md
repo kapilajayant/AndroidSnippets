@@ -24,9 +24,10 @@
 * Pop Up Menu
 * Pie Chart
 * Custom Alert Dialog
+* Bottom Sheet Menu
+
 > Things to add
 * Swipe Stack Layout
 * Broadcast receivers
 * location
 * Retrofit
-* Bottom Sheet Menu
