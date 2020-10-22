@@ -8,3 +8,4 @@ pref1 = getSharedPreferences(mypreferences1, Context.MODE_PRIVATE);
 SharedPreferences.Editor editor = pref1.edit();
 editor.putString("key", value);
 editor.commit();
+//editor.apply() to handle in background
